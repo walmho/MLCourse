@@ -15,18 +15,21 @@ regressor.fit(X_train, Y_train)
 
 Y_pred = regressor.predict(X_test)
 
-fig, (train, test) = plt.subplots(2)
 #Training results
-train.set_title('Salary vs. Experience (Training)')
-train.set_xlabel('Years of Experience')
-train.set_ylabel('Salary')
+plt.title('Salary vs. Experience (Training)')
+plt.xlabel('Years of Experience')
+plt.ylabel('Salary')
 
-train.scatter(X_test, Y_test, color='blue')
-train.plot(X_train, regressor.predict(X_train))
+plt.scatter(X_train, Y_train, color='blue')
+plt.plot(X_train, regressor.predict(X_train), color='red')
+plt.show()
 
 #Test results
-test.set_title('Salary vs. Experience')
-test.set_xlabel('Years of Experience')
-test.set_ylabel('Salary')
+plt.title('Salary vs. Experience (Test)')
+plt.xlabel('Years of Experience')
+plt.ylabel('Salary')
+
+plt.scatter(X_test, Y_test, color='blue')
+plt.plot(X_train, regressor.predict(X_train), color='red')
 
 plt.show()
