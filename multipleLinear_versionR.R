@@ -17,3 +17,7 @@ regressor = lm(formula = Profit ~ .,
 
 y_pred = predict(regressor, newdata = test_set)
 
+#Practicing using backward elimination
+regressor = lm(formula = Profit ~ R.D.Spend,
+               data = training_set)
+summary(regressor)
