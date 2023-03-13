@@ -18,7 +18,8 @@ y = dataset.iloc[:, -1].values
 lin_reg = LinearRegression()
 lin_reg.fit(x, y)
 
-poly_reg = PolynomialFeatures(degree = 2)
+degree_number = 6
+poly_reg = PolynomialFeatures(degree = degree_number)
 x_poly = poly_reg.fit_transform(x)
 lin_reg_2 = LinearRegression()
 lin_reg_2.fit(x_poly, y)
@@ -39,7 +40,7 @@ lin_reg_2.fit(x_poly, y)
 
 plt.scatter(x, y, color='red', label='current salary points')
 plt.plot(x, lin_reg.predict(x), color='blue', label='predicted linear')
-plt.plot(x, lin_reg_2.predict(poly_reg.fit_transform(x)), color='purple', label='predicted polynomial')
+plt.plot(x, lin_reg_2.predict(poly_reg.fit_transform(x)), color='purple', label=f'polynomial, degree {degree_number}')
 plt.title("Truth or Bluff (regression comparison version)")
 plt.xlabel("Position Level")
 plt.ylabel("Salary")
