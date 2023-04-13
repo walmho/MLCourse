@@ -18,7 +18,7 @@ y = dataset.iloc[:, -1].values
 lin_reg = LinearRegression()
 lin_reg.fit(x, y)
 
-degree_number = 6
+degree_number = 4
 poly_reg = PolynomialFeatures(degree = degree_number)
 x_poly = poly_reg.fit_transform(x)
 lin_reg_2 = LinearRegression()
@@ -61,3 +61,6 @@ plt.xlabel("Position Level")
 plt.ylabel("Salary")
 plt.legend(loc='upper left')
 plt.show()
+
+#Prediction for imaginary scenario of potential employee
+print(lin_reg_2.predict(poly_reg.fit_transform([6.5])))
